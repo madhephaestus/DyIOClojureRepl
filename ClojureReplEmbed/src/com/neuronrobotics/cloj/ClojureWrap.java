@@ -18,6 +18,7 @@ public class ClojureWrap {
 	 */
 	
 	static JPanel getDyIORepell( DyIO dyio){
+		String mac = dyio.getAddress().toString();
 		// TODO Auto-generated method stub
 				REQUIRE.invoke(CLOJURE_MAIN);
 				
