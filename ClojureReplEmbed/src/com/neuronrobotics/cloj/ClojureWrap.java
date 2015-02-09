@@ -1,4 +1,8 @@
 package com.neuronrobotics.cloj;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import com.neuronrobotics.sdk.commands.bcs.io.GetDyIOChannelCountCommand;
 import com.neuronrobotics.sdk.dyio.DyIO;
 import com.neuronrobotics.sdk.ui.ConnectionDialog;
 
@@ -12,11 +16,21 @@ public class ClojureWrap {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		DyIO dyio = new DyIO(ConnectionDialog.promptConnection());
+	
+	static JPanel getDyIORepell( DyIO dyio){
 		// TODO Auto-generated method stub
-		REQUIRE.invoke(CLOJURE_MAIN);
-	    MAIN.applyTo(RT.seq(args));
+				REQUIRE.invoke(CLOJURE_MAIN);
+				
+			    MAIN.applyTo(RT.seq(new String[0]));
+		return null;
+	}
+
+	public static void main(String[] args) {
+		JFrame frame = new JFrame();
+		
+		DyIO dyio = new DyIO(ConnectionDialog.promptConnection());
+		frame.add(getDyIORepell(dyio));
+		
 	}
 
 }
