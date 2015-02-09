@@ -1,4 +1,7 @@
 package com.neuronrobotics.cloj;
+import com.neuronrobotics.sdk.dyio.DyIO;
+import com.neuronrobotics.sdk.ui.ConnectionDialog;
+
 import clojure.lang.Symbol;
 import clojure.lang.Var;
 import clojure.lang.RT;
@@ -10,6 +13,7 @@ public class ClojureWrap {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		DyIO dyio = new DyIO(ConnectionDialog.promptConnection());
 		// TODO Auto-generated method stub
 		REQUIRE.invoke(CLOJURE_MAIN);
 	    MAIN.applyTo(RT.seq(args));
